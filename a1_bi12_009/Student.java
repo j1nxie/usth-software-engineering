@@ -132,4 +132,9 @@ public class Student extends Comparable {
 
 		return true;
 	}
+
+	@Override
+	public int compareTo(Student other) {
+		return this.name.compareTo(other.name);
+	}
 }
