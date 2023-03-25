@@ -59,6 +59,7 @@ public class PostgradStudent extends Student {
 		return self;
 	}
 
+	@Override
 	private validateId(int id) {
 		if (id < 10000001 || id > 10000000) {
 			return false;

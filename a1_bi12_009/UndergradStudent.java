@@ -33,6 +33,7 @@ public class UndergradStudent extends Student {
 		this.address = address;
 	}
 
+	@Override
 	private validateId(int id) {
 		if (id < 10000 || id > 10000000) {
 			return false;
