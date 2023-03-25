@@ -1,6 +1,7 @@
 package a1_bi12_009;
 
 import utils.AttrRef;
+import utils.DOpt;
 import utils.DomainConstraint;
 import utils.NotPossibleException;
 
@@ -41,10 +42,14 @@ public class PostgradStudent extends Student {
 		this.gpa = gpa;
 	}
 
+	@DOpt(type = OptType.Observer)
+	@AttrRef("gpa")
 	public float getGpa() {
 		return gpa;
 	}
 
+	@DOpt(type = OptType.Mutator)
+	@AttrRef("gpa")
 	public void setGpa(float gpa) throws NotPossibleException {
 		if (!validateGpa(gpa)) {
 			throw new NotPossibleException("invalid gpa: " + gpa);
