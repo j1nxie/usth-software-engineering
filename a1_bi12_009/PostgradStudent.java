@@ -6,7 +6,7 @@ import utils.DomainConstraint;
 import utils.NotPossibleException;
 
 public class PostgradStudent extends Student {
-	@DomainConstraint(type = "int", mutable = false, optional = false, min = 10000001, max = 10000000)
+	@DomainConstraint(type = "int", mutable = false, optional = false, min = 100000001, max = 1000000000)
 	private int id;
 
 	@DomainConstraint(type = "float", mutable = true, optional = false, min = 0.0, max = 4.0)

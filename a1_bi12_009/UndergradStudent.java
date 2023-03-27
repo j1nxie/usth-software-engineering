@@ -5,7 +5,7 @@ import utils.DomainConstraint;
 import utils.NotPossibleException;
 
 public class UndergradStudent extends Student {
-	@DomainConstraint(type = "int", mutable = false, optional = false, min = 10000, max = 10000000)
+	@DomainConstraint(type = "int", mutable = false, optional = false, min = 100000, max = 1000000000)
 	private int id;
 
 	public UndergradStudent(@AttrRef("id") int id, @AttrRef("name") String name,
