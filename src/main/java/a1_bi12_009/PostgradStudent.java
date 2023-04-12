@@ -4,17 +4,20 @@ import utils.AttrRef;
 import utils.DOpt;
 import utils.DomainConstraint;
 import utils.NotPossibleException;
+import utils.OptType;
 
 public class PostgradStudent extends Student {
 	@DomainConstraint(type = "int", mutable = false, optional = false, min = 100000001, max = 1000000000)
-	private int id;
+	protected int id;
 
 	@DomainConstraint(type = "float", mutable = true, optional = false, min = 0.0, max = 4.0)
-	private float gpa;
+	protected float gpa;
 
 	public PostgradStudent(@AttrRef("id") int id, @AttrRef("name") String name,
 			@AttrRef("phoneNumber") String phoneNumber, @AttrRef("address") String address, @AttrRef("float") float gpa)
 			throws NotPossibleException {
+		super(id, name, phoneNumber, address);
+
 		if (!validateId(id)) {
 			throw new NotPossibleException("invalid id: " + id);
 		}
@@ -56,11 +59,10 @@ public class PostgradStudent extends Student {
 		}
 
 		this.gpa = gpa;
-		return self;
 	}
 
 	@Override
-	private boolean validateId(int id) {
+	protected boolean validateId(int id) {
 		if (id < 10000001 || id > 10000000) {
 			return false;
 		}
@@ -68,7 +70,7 @@ public class PostgradStudent extends Student {
 		return true;
 	}
 
-	private validateGpa(float gpa) {
+	private boolean validateGpa(float gpa) {
 		if (gpa < 0.0 || gpa > 4.0) {
 			return false;
 		}

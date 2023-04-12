@@ -6,18 +6,18 @@ import utils.DomainConstraint;
 import utils.NotPossibleException;
 import utils.OptType;
 
-public class Student extends Comparable {
+public class Student implements Comparable<Student> {
 	@DomainConstraint(type = "int", mutable = false, optional = false, min = 1, max = 1000000000)
-	private int id;
+	protected int id;
 
 	@DomainConstraint(type = "String", mutable = true, optional = false, length = 50)
-	private String name;
+	protected String name;
 
 	@DomainConstraint(type = "String", mutable = true, optional = false, length = 10)
-	private String phoneNumber;
+	protected String phoneNumber;
 
 	@DomainConstraint(type = "String", mutable = true, optional = false, length = 100)
-	private String address;
+	protected String address;
 
 	public Student(@AttrRef("id") int id, @AttrRef("name") String name, @AttrRef("phoneNumber") String phoneNumber,
 			@AttrRef("address") String address) throws NotPossibleException {
@@ -76,7 +76,6 @@ public class Student extends Comparable {
 		}
 
 		this.name = name;
-		return self;
 	}
 
 	@DOpt(type = OptType.Mutator)
@@ -87,7 +86,6 @@ public class Student extends Comparable {
 		}
 
 		this.phoneNumber = phoneNumber;
-		return self;
 	}
 
 	@DOpt(type = OptType.Mutator)
@@ -98,10 +96,9 @@ public class Student extends Comparable {
 		}
 
 		this.address = address;
-		return self;
 	}
 
-	private boolean validateId(int id) {
+	protected boolean validateId(int id) {
 		if (id < 1 || id > 1000000000) {
 			return false;
 		}
@@ -109,7 +106,7 @@ public class Student extends Comparable {
 		return true;
 	}
 
-	private boolean validateName(String name) {
+	protected boolean validateName(String name) {
 		if (name.length() > 50) {
 			return false;
 		}
@@ -117,7 +114,7 @@ public class Student extends Comparable {
 		return true;
 	}
 
-	private boolean validatePhoneNumber(String phoneNumber) {
+	protected boolean validatePhoneNumber(String phoneNumber) {
 		if (phoneNumber.length() > 10) {
 			return false;
 		}
@@ -125,7 +122,7 @@ public class Student extends Comparable {
 		return true;
 	}
 
-	private boolean validateAddress(String address) {
+	protected boolean validateAddress(String address) {
 		if (address.length() > 100) {
 			return false;
 		}
