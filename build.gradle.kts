@@ -3,19 +3,21 @@
  */
 
 plugins {
-    id("java-library")
-    id("maven-publish")
+	id("java-library")
+	id("maven-publish")
 }
 
 repositories {
-    mavenLocal()
-    maven {
-        url = uri("https://repo.maven.apache.org/maven2/")
-    }
+	mavenLocal()
+		maven {
+			url = uri("https://repo.maven.apache.org/maven2/")
+		}
+	mavenCentral()
 }
 
 dependencies {
-    testImplementation("junit:junit:4.11")
+	testImplementation(platform("org.junit:junit-bom:5.9.2"))
+	testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
 }
 
 group = "moe.rylie"
@@ -24,9 +26,16 @@ description = "software-engineering"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 tasks.withType<JavaCompile> {
-    options.encoding = "UTF-8"
+	options.encoding = "UTF-8"
 }
 
 tasks.withType<Javadoc> {
-    options.encoding = "UTF-8"
+	options.encoding = "UTF-8"
+}
+
+tasks.test {
+	useJUnitPlatform()
+	testLogging {
+		events("passed", "skipped", "failed")
+	}
 }
