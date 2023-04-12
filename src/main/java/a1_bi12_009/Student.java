@@ -7,7 +7,7 @@ import utils.NotPossibleException;
 import utils.OptType;
 
 public class Student implements Comparable<Student> {
-	@DomainConstraint(type = "int", mutable = false, optional = false, min = 1, max = 1000000000)
+	@DomainConstraint(type = "int", mutable = false, optional = false, min = 1, max = 100000000)
 	protected int id;
 
 	@DomainConstraint(type = "String", mutable = true, optional = false, length = 50)
