@@ -9,6 +9,7 @@ gradle-app.setting
 !gradle-wrapper.jar
 !gradle-wrapper.properties
 .gradletasknamecache
+.project
 
 # Ignore Gradle build output directory
 build
