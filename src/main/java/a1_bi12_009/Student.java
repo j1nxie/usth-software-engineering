@@ -138,7 +138,10 @@ public class Student implements Comparable<Student> {
 	}
 
 	@Override
-	public int compareTo(Student other) {
+	public int compareTo(Student other) throws NullPointerException {
+		if (other == null) {
+			throw new NullPointerException("null pointer exception lol");
+		}
 		return this.name.compareTo(other.name);
 	}
 
