@@ -15,30 +15,10 @@ public class PostgradStudent extends Student {
 			throws NotPossibleException {
 		super(id, name, phoneNumber, address);
 
-		if (!validateId(id)) {
-			throw new NotPossibleException("invalid id: " + id);
-		}
-
-		if (!validateName(name)) {
-			throw new NotPossibleException("invalid name: " + name);
-		}
-
-		if (!validatePhoneNumber(phoneNumber)) {
-			throw new NotPossibleException("invalid phone number: " + phoneNumber);
-		}
-
-		if (!validateAddress(address)) {
-			throw new NotPossibleException("invalid address: " + address);
-		}
-
 		if (!validateGpa(gpa)) {
 			throw new NotPossibleException("invalid gpa: " + gpa);
 		}
 
-		this.id = id;
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-		this.address = address;
 		this.gpa = gpa;
 	}
 
