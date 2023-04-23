@@ -1,7 +1,6 @@
 package a1_bi12_009;
 
 import utils.AttrRef;
-import utils.DomainConstraint;
 import utils.NotPossibleException;
 
 public class UndergradStudent extends Student {
