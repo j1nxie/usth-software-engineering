@@ -70,32 +70,35 @@ public class Student implements Comparable<Student> {
 
 	@DOpt(type = OptType.Mutator)
 	@AttrRef("name")
-	public void setName(String name) throws NotPossibleException {
+	public boolean setName(String name) {
 		if (!validateName(name)) {
-			throw new NotPossibleException("invalid name: " + name);
+			return false;
 		}
 
 		this.name = name;
+		return true;
 	}
 
 	@DOpt(type = OptType.Mutator)
 	@AttrRef("phoneNumber")
-	public void setPhoneNumber(String phoneNumber) throws NotPossibleException {
+	public boolean setPhoneNumber(String phoneNumber) {
 		if (!validatePhoneNumber(phoneNumber)) {
-			throw new NotPossibleException("invalid phone number: " + phoneNumber);
+			return false;
 		}
 
 		this.phoneNumber = phoneNumber;
+		return true;
 	}
 
 	@DOpt(type = OptType.Mutator)
 	@AttrRef("address")
-	public void setAddress(String address) throws NotPossibleException {
+	public boolean setAddress(String address) {
 		if (!validateAddress(address)) {
-			throw new NotPossibleException("invalid address: " + address);
+			return false;
 		}
 
 		this.address = address;
+		return true;
 	}
 
 	protected boolean validateId(int id) {
