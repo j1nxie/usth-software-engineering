@@ -1,6 +1,7 @@
 package a1_bi12_009;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ class TestPostgradStudent {
 	@Test
 	void testCreatePostgradStudentFailureGpa() {
 		assertThrows(NotPossibleException.class, () -> {
-			PostgradStudent student = new PostgradStudent(100000727, "Rylie", "0123456727", "Grove St.", 5.0f);
+			new PostgradStudent(100000727, "Rylie", "0123456727", "Grove St.", 5.0f);
 		});
 	}
 
@@ -45,11 +46,9 @@ class TestPostgradStudent {
 	void testMutatePostgradStudentGpaFailure() {
 		PostgradStudent student = new PostgradStudent(100000727, "Rylie", "0123456727", "Grove St.", 4.0f);
 
-		assertThrows(NotPossibleException.class, () -> {
-			student.setGpa(-1.0f);
-		});
-		assertThrows(NotPossibleException.class, () -> {
-			student.setGpa(5.0f);
-		});
+		assertFalse(
+				student.setGpa(-1.0f));
+		assertFalse(
+				student.setGpa(5.0f));
 	}
 }

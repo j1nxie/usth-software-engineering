@@ -1,6 +1,7 @@
 package a1_bi12_009;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
@@ -60,9 +61,8 @@ class TestStudent {
 	void testMutateStudentNameFailure() {
 		Student student = new Student(727, "Rylie", "0123456727", "Grove St.");
 
-		assertThrows(NotPossibleException.class, () -> {
-			student.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		});
+		assertFalse(
+				student.setName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
 	}
 
 	@Test
@@ -77,9 +77,8 @@ class TestStudent {
 	void testMutateStudentPhoneNumberFailure() {
 		Student student = new Student(727, "Rylie", "0123456727", "Grove St.");
 
-		assertThrows(NotPossibleException.class, () -> {
-			student.setPhoneNumber("01234567270");
-		});
+		assertFalse(
+				student.setPhoneNumber("01234567270"));
 	}
 
 	@Test
@@ -93,9 +92,9 @@ class TestStudent {
 	@Test
 	void testMutateStudentAddressFailure() {
 		Student student = new Student(727, "Rylie", "0123456727", "Grove St.");
-		assertThrows(NotPossibleException.class, () -> {
-			student.setAddress(
-					"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-		});
+
+		assertFalse(
+				student.setAddress(
+						"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
 	}
 }
