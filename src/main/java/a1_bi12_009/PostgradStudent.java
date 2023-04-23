@@ -55,4 +55,10 @@ public class PostgradStudent extends Student {
 
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("- ID: %d\n-Name: %s\n- Phone number: %s\n- Address: %s", this.getId(), this.getName(),
+				this.getPhoneNumber(), this.getAddress());
+	}
 }
