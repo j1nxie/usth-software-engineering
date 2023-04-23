@@ -7,9 +7,6 @@ import utils.NotPossibleException;
 import utils.OptType;
 
 public class PostgradStudent extends Student {
-	@DomainConstraint(type = "int", mutable = false, optional = false, min = 100000001, max = 1000000000)
-	protected int id;
-
 	@DomainConstraint(type = "float", mutable = true, optional = false, min = 0.0, max = 4.0)
 	protected float gpa;
 
