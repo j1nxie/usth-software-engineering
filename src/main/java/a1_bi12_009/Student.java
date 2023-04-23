@@ -8,16 +8,16 @@ import utils.OptType;
 
 public class Student implements Comparable<Student> {
 	@DomainConstraint(type = "int", mutable = false, optional = false, min = 1, max = 100000000)
-	protected int id;
+	private int id;
 
 	@DomainConstraint(type = "String", mutable = true, optional = false, length = 50)
-	protected String name;
+	private String name;
 
 	@DomainConstraint(type = "String", mutable = true, optional = false, length = 10)
-	protected String phoneNumber;
+	private String phoneNumber;
 
 	@DomainConstraint(type = "String", mutable = true, optional = false, length = 100)
-	protected String address;
+	private String address;
 
 	public Student(@AttrRef("id") int id, @AttrRef("name") String name, @AttrRef("phoneNumber") String phoneNumber,
 			@AttrRef("address") String address) throws NotPossibleException {
