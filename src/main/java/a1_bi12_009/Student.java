@@ -133,6 +133,10 @@ public class Student implements Comparable<Student> {
 		return true;
 	}
 
+	public boolean repOK() {
+		return validateId(id) && validateName(name) && validatePhoneNumber(phoneNumber) && validateAddress(address);
+	}
+
 	@Override
 	public int compareTo(Student other) {
 		return this.name.compareTo(other.name);
