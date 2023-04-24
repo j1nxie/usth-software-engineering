@@ -132,6 +132,23 @@ public class PostgradStudent extends Student {
 		return true;
 	}
 
+	// @formatter:off
+	/**
+	 * @effects
+	 *  <pre>
+	 *    if everything is valid w.r.t. abstract properties
+	 *      return true
+	 *    else
+	 *      return false
+	 *  </pre>
+	 **/
+	// @formatter:on
+	@Override
+	public boolean repOK() {
+		return validateId(this.getId()) && validateName(this.getName()) && validatePhoneNumber(this.getPhoneNumber())
+				&& validateAddress(this.getAddress()) && validateGpa(gpa);
+	}
+
 	@Override
 	public String toString() {
 		return String.format("- ID: %d\n-Name: %s\n- Phone number: %s\n- Address: %s\n- GPA: %f", this.getId(),
